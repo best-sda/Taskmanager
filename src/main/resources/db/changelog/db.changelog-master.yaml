@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - sqlFile:
+      encoding: utf8
+      path: /db/changelog/sqlSchema.sql
