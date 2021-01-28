@@ -36,22 +36,22 @@ public class MainController {
     public Task getTask(@PathVariable("id") Long id) {
         return taskRepository.find(id);
     }
-    @DeleteMapping("/tasks/delete")
+    @DeleteMapping("/tasks/delete/{id}")
     public boolean deleteTask(@PathVariable("id") Long id) {
        return taskRepository.delete(id);
     }
 
-    @GetMapping("/employee")
+    @GetMapping("/employees")
     public List<Employee> getEmployee() {return employeeRepository.findAll(DSL.noCondition());}
-    @PostMapping("/employee/create")
+    @PostMapping("/employees/create")
     public Employee createEmployee(@Validated @RequestBody Task task) {
         return (Employee) employeeRepository.insert(task);
     }
-    @GetMapping("/employee/{id}")
+    @GetMapping("/employees/{id}")
     public Employee getEmployee(@PathVariable("id") Long id) {
         return (Employee) employeeRepository.find(id);
     }
-    @DeleteMapping("/employee/delete")
+    @DeleteMapping("/employees/delete")
     public boolean deleteEmployee(@PathVariable("id") Long id) {
         return employeeRepository.delete(id);
     }
